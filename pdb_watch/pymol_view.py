@@ -1,12 +1,35 @@
 """
-ver. 1.0.0
+
 """
+
 from pymol.cmd import * 
 import glob
+fff = glob.glob('*.pdb')
+print fff
+func = lambda a:a.split('.')[0]
+fff = map(func,fff)
+print fff
 
 map(load,glob.glob('*.pdb'))
+cmd.remove("resn WAT | hydrogen | resn CIP+CIM+NME")
 
-cmd.remove("resn WAT | hydrogen")
+#align_nishi2 = lambda a: align(a,fff[0])
+
+"""
+def align_nishi(aaa):
+	align(aaa,fff[0])
+	return
+map(align_nishi,fff[1:])
+"""
+#map(align_nishi2,fff[1:])
+map(lambda a: align(a,fff[0]),fff[1:])
+
+"""
+for i in range(len(fff)-1):
+	#align("%s%s%s"%(fff[0],),fff[i+1])
+	#align(fff[0],fff[i+1])
+	align(fff[i+1],fff[0])
+"""
 cmd.hide("everything")
 cmd.show("ribbon")
 #cmd.select("h3","i. 210-222")
