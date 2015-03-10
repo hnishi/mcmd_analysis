@@ -1,6 +1,7 @@
 """
-
+pymol_view.py
 """
+print v1.1.1
 
 from pymol.cmd import * 
 import glob
