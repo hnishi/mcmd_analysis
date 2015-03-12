@@ -1,9 +1,10 @@
 """
 pymol_view.py
 """
-print v1.1.1
-
+print "pymol_view.py v1.1.1"
+#try:
 from pymol.cmd import * 
+#except:
 import glob
 fff = glob.glob('*.pdb')
 print fff
